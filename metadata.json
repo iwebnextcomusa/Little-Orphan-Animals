@@ -1,0 +1,6 @@
+{
+  "name": "Little Orphan Animals",
+  "description": "A beautiful, responsive, and production-quality website for Little Orphan Animals, a nonprofit animal rescue sanctuary founded by Nancy Nenad.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
