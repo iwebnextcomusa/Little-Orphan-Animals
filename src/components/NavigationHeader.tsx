@@ -1,19 +1,15 @@
 import { useState, useEffect } from "react";
-import { Heart, Menu, X, Sun, Moon, Sparkles } from "lucide-react";
+import { Heart, Menu, X, Sparkles } from "lucide-react";
 
 interface HeaderProps {
   activeSection: string;
   setActiveSection: (sec: string) => void;
-  darkMode: boolean;
-  setDarkMode: (val: boolean) => void;
   onOpenDonateModal: () => void;
 }
 
 export default function NavigationHeader({
   activeSection,
   setActiveSection,
-  darkMode,
-  setDarkMode,
   onOpenDonateModal,
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -96,10 +92,10 @@ export default function NavigationHeader({
             </div>
             
             <div className="flex flex-col">
-              <span className="font-serif text-lg font-bold text-stone-900 dark:text-white tracking-tight leading-tight">
+              <span className="font-serif text-lg font-bold text-black dark:text-black tracking-tight leading-tight">
                 Little Orphan Animals
               </span>
-              <span className="text-[10px] text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-widest leading-none mt-0.5">
+              <span className="text-[10px] text-black/75 dark:text-black/75 font-semibold uppercase tracking-widest leading-none mt-0.5">
                 Lifelong Sanctuary
               </span>
             </div>
@@ -112,10 +108,10 @@ export default function NavigationHeader({
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 id={`nav-${item.id}`}
-                className={`px-3 py-2 rounded-xl text-sm font-medium tracking-wide transition-all cursor-pointer ${
+                className={`px-3 py-2 rounded-xl text-sm font-semibold tracking-wide transition-all cursor-pointer ${
                   activeSection === item.id
-                    ? "bg-emerald-100/60 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-300 font-semibold"
-                    : "text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white hover:bg-stone-100/40 dark:hover:bg-stone-800/40"
+                    ? "bg-emerald-100/60 dark:bg-emerald-950/40 text-black dark:text-black"
+                    : "text-black/80 dark:text-black/80 hover:text-black dark:hover:text-black hover:bg-stone-100/40 dark:hover:bg-stone-800/40"
                 }`}
               >
                 {item.label}
@@ -123,23 +119,13 @@ export default function NavigationHeader({
             ))}
           </nav>
 
-          {/* Action Tools: Theme, Donate Button, Mobile Menu trigger */}
+          {/* Action Tools: Donate Button, Mobile Menu trigger */}
           <div className="flex items-center space-x-3">
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              id="btn-theme-toggle"
-              className="p-2.5 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white rounded-xl bg-stone-100/60 dark:bg-stone-800/60 border border-stone-200/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
-              aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            >
-              {darkMode ? <Sun className="w-4.5 h-4.5" /> : <Moon className="w-4.5 h-4.5" />}
-            </button>
-
             {/* Sticky Donate Trigger */}
             <button
               onClick={onOpenDonateModal}
               id="btn-header-donate"
-              className="hidden sm:inline-flex items-center space-x-2 bg-amber-500 hover:bg-amber-400 dark:bg-amber-600 dark:hover:bg-amber-500 text-stone-950 dark:text-white font-bold px-4 py-2.5 rounded-xl shadow-md shadow-amber-500/10 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer text-sm"
+              className="hidden sm:inline-flex items-center space-x-2 bg-amber-500 hover:bg-amber-400 dark:bg-amber-600 dark:hover:bg-amber-500 text-black dark:text-black font-bold px-4 py-2.5 rounded-xl shadow-md shadow-amber-500/10 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer text-sm"
             >
               <Heart className="w-4.5 h-4.5 fill-current text-rose-500" />
               <span>Donate Now</span>
@@ -149,7 +135,7 @@ export default function NavigationHeader({
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               id="btn-mobile-menu"
-              className="p-2 text-stone-700 dark:text-stone-200 lg:hidden rounded-xl bg-stone-100/60 dark:bg-stone-800/60 hover:bg-stone-200/50 transition-colors"
+              className="p-2 text-black dark:text-black lg:hidden rounded-xl bg-stone-100/60 dark:bg-stone-800/60 hover:bg-stone-200/50 transition-colors"
               aria-label="Toggle Mobile Menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -170,10 +156,10 @@ export default function NavigationHeader({
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 id={`nav-mob-${item.id}`}
-                className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all ${
                   activeSection === item.id
-                    ? "bg-emerald-50 dark:bg-emerald-950/35 text-emerald-800 dark:text-emerald-300 font-semibold border-l-4 border-emerald-800 dark:border-emerald-500"
-                    : "text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800/50"
+                    ? "bg-emerald-50 dark:bg-emerald-950/35 text-black dark:text-black border-l-4 border-emerald-800 dark:border-emerald-500"
+                    : "text-black/85 dark:text-black/85 hover:bg-stone-50 dark:hover:bg-stone-800/50"
                 }`}
               >
                 {item.label}
@@ -188,7 +174,7 @@ export default function NavigationHeader({
                 onOpenDonateModal();
               }}
               id="btn-mobile-donate"
-              className="w-full flex items-center justify-center space-x-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold py-3.5 rounded-2xl shadow-lg"
+              className="w-full flex items-center justify-center space-x-2 bg-amber-500 hover:bg-amber-400 text-black font-bold py-3.5 rounded-2xl shadow-lg"
             >
               <Heart className="w-5 h-5 fill-current text-rose-500" />
               <span>Donate to Nancy's Sanctuary</span>

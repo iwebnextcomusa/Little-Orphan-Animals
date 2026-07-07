@@ -86,7 +86,7 @@ export default function AIChatbot() {
       {isOpen && (
         <div
           id="chatbot-window"
-          className="w-[90vw] sm:w-[380px] h-[520px] bg-white dark:bg-stone-900 rounded-3xl shadow-2xl border border-stone-200 dark:border-stone-800 flex flex-col overflow-hidden mb-4 transition-all duration-300 ease-out animate-in slide-in-from-bottom-5"
+          className="w-[90vw] sm:w-[380px] h-[520px] max-h-[calc(100vh-180px)] bg-white dark:bg-stone-900 rounded-3xl shadow-2xl border border-stone-200 dark:border-stone-800 flex flex-col overflow-hidden mb-4 transition-all duration-300 ease-out animate-in slide-in-from-bottom-5"
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-emerald-800 to-emerald-700 dark:from-emerald-950 dark:to-emerald-900 text-white px-5 py-4 flex items-center justify-between shadow-md">

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import NavigationHeader from "./components/NavigationHeader";
 import HeroSection from "./components/HeroSection";
 import ImpactStatistics from "./components/ImpactStatistics";
-import InteractiveSanctuary3D from "./components/InteractiveSanctuary3D";
 import AboutUs from "./components/AboutUs";
 import OurAnimalsGrid from "./components/OurAnimalsGrid";
 import RescueChronicles from "./components/RescueChronicles";
@@ -18,20 +17,16 @@ import { ArrowUp, Heart, Check, Sparkles, ShieldCheck, HelpCircle } from "lucide
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
-  const [darkMode, setDarkMode] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   
   // Heartwarming feedback toast state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Sync dark mode class on root element
+  // Keep the website strictly in light mode
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("LOA_DARK_MODE", "false");
+  }, []);
 
   // Handle showing scroll-to-top button
   useEffect(() => {
@@ -93,8 +88,6 @@ export default function App() {
       <NavigationHeader
         activeSection={activeSection}
         setActiveSection={setActiveSection}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
         onOpenDonateModal={() => handleScrollToSection("donate")}
       />
 
@@ -111,11 +104,6 @@ export default function App() {
 
         {/* 3. Impact Statistics */}
         <ImpactStatistics />
-
-        {/* 4. Interactive 3D Sanctuary Canvas */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <InteractiveSanctuary3D />
-        </div>
 
         {/* 5. About Us (Nancy Nenad Story, Core Values, Milestone Timeline) */}
         <div id="sec-about" className="scroll-mt-20">

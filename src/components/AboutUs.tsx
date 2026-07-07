@@ -1,7 +1,22 @@
+import { useState, useEffect } from "react";
 import { TIMELINE_MILESTONES } from "../data";
 import { Sparkles, Compass, ShieldAlert, Heart, Calendar } from "lucide-react";
+// @ts-ignore
+import shiva1 from "../assets/images/shiva_1_1783440573220.jpg";
+// @ts-ignore
+import shiva2 from "../assets/images/shiva_2_1783440593395.jpg";
 
 export default function AboutUs() {
+  const shivaImages = [shiva1, shiva2];
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImgIndex((prev) => (prev + 1) % shivaImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [shivaImages.length]);
+
   const values = [
     {
       title: "Love & Comfort First",
@@ -30,33 +45,67 @@ export default function AboutUs() {
             </div>
             
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 dark:text-white leading-tight">
-              The Story of Little Orphan Animals
+              From Shiva's Perspective
             </h2>
 
-            <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
-              Founded in 2015 by <strong>Nancy Nenad</strong>, Little Orphan Animals was born out of a profound realization: senior, chronically disabled, or highly traumatized rescues are frequently overlooked by traditional shelters. They require specialized, expensive, and long-term care that many shelters simply cannot afford to sustain.
+            <p className="text-lg sm:text-xl text-emerald-800 dark:text-emerald-300 font-serif italic font-medium leading-relaxed">
+              &ldquo;I gave everything I had.&rdquo;
             </p>
 
             <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
-              Nancy purchased 15 beautiful acres of pasture land to establish a secure, forever haven. Since then, the sanctuary has expanded to feature climate-controlled sleeping barns, a specialized vet cottage, a heated indoor-outdoor cat shelter, and spacious aviaries.
+              I worked without complaint. I trusted the hands that held my lead rope. I never imagined my journey would end in fear.
             </p>
 
-            <div className="bg-emerald-50 dark:bg-emerald-950/30 p-5 rounded-2xl border-l-4 border-emerald-850 dark:border-emerald-500 text-stone-800 dark:text-stone-100 text-xs sm:text-sm">
-              <strong className="font-serif block mb-1 text-emerald-950 dark:text-emerald-300">
-                Why Lifelong Sanctuary Matters
-              </strong>
-              Due to age, medical histories, or developmental traumas, many of our permanent residents are not adoptable. Rather than facing distress or euthanasia, they live the rest of their natural lives in peace, dignity, and absolute comfort here with us.
+            <p className="text-sm sm:text-base text-stone-700 dark:text-stone-200 font-medium leading-relaxed font-sans">
+              But someone saw me.
+            </p>
+
+            <p className="text-sm sm:text-base text-stone-700 dark:text-stone-200 font-medium leading-relaxed font-sans">
+              Someone believed my life still mattered.
+            </p>
+
+            <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
+              Today I know the warmth of a safe barn, the comfort of gentle voices, and the freedom to simply be a horse again.
+            </p>
+
+            <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
+              There are so many others still waiting for someone to see them.
+            </p>
+
+            <div className="bg-emerald-50 dark:bg-emerald-950/30 p-5 rounded-2xl border-l-4 border-emerald-800 dark:border-emerald-500 text-stone-800 dark:text-stone-100 text-sm sm:text-base font-serif italic font-semibold">
+              Will you be their someone?
             </div>
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative rounded-[32px] overflow-hidden border-4 border-stone-100 shadow-xl max-w-[480px] mx-auto">
-              <img
-                src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=800"
-                alt="Nancy Nenad working with horses at the sanctuary"
-                className="w-full h-[360px] sm:h-[420px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent flex items-end p-6">
+            <div className="relative rounded-[32px] overflow-hidden border-4 border-stone-100 dark:border-stone-850 shadow-xl max-w-[480px] mx-auto h-[360px] sm:h-[420px] bg-stone-100 dark:bg-stone-800">
+              {shivaImages.map((src, index) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Shiva - magnificent draft horse - slide ${index + 1}`}
+                  referrerPolicy="no-referrer"
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                    index === currentImgIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                  }`}
+                />
+              ))}
+
+              {/* Slider Dots */}
+              <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex space-x-2 z-20 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full">
+                {shivaImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImgIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImgIndex ? "bg-white scale-125" : "bg-white/40 hover:bg-white/75"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent flex items-end p-6 z-20 pointer-events-none">
                 <p className="text-xs text-white/90 italic">
                   &ldquo;Every animal who walks through our gates is guaranteed a lifetime of absolute love, peace, and soft bedding.&rdquo; &ndash; Nancy Nenad, Founder
                 </p>
