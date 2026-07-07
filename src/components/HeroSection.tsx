@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Heart, ArrowRight, ShieldCheck, Sparkles, Sprout, Volume2, VolumeX } from "lucide-react";
 
 interface HeroProps {
@@ -17,6 +17,14 @@ export default function HeroSection({ onMeetRescues, onDonateClick }: HeroProps)
     }
   };
 
+  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    if (video.duration && video.currentTime >= video.duration - 1) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
+  };
+
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center pt-28 pb-16 overflow-hidden isolate">
       {/* Background Sanctuary Video and Fallback Gradient */}
@@ -25,9 +33,9 @@ export default function HeroSection({ onMeetRescues, onDonateClick }: HeroProps)
           ref={videoRef}
           src="https://ccasobqyyem16ojh.public.blob.vercel-storage.com/Little%20Orphan%20Animals.mp4"
           autoPlay
-          loop
           muted={isMuted}
           playsInline
+          onTimeUpdate={handleTimeUpdate}
           className="w-full h-full object-cover object-center opacity-85 dark:opacity-40 transition-opacity duration-1000 ease-out"
         />
         {/* Soft elegant vignette overlay for contrast and legibility */}
