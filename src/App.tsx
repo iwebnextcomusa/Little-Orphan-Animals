@@ -22,10 +22,10 @@ export default function App() {
   // Heartwarming feedback toast state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Keep the website strictly in light mode
+  // Keep the website strictly in dark mode
   useEffect(() => {
-    document.documentElement.classList.remove("dark");
-    localStorage.setItem("LOA_DARK_MODE", "false");
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("LOA_DARK_MODE", "true");
   }, []);
 
   // Handle showing scroll-to-top button
@@ -34,7 +34,7 @@ export default function App() {
       setShowScrollTop(window.scrollY > 400);
       
       // Basic IntersectionObserver/scroll highlight detection for active navigation
-      const sections = ["home", "about", "animals", "stories", "donate", "volunteer", "foster", "gallery", "news", "contact"];
+      const sections = ["home", "about", "rescue-stories", "donate", "volunteer", "foster", "gallery", "news", "contact"];
       const offset = 120;
       
       for (const sec of sections) {
@@ -97,7 +97,7 @@ export default function App() {
         {/* 2. Hero Section */}
         <div id="sec-home">
           <HeroSection
-            onMeetRescues={() => handleScrollToSection("animals")}
+            onMeetRescues={() => handleScrollToSection("rescue-stories")}
             onDonateClick={() => handleScrollToSection("donate")}
           />
         </div>
@@ -110,13 +110,9 @@ export default function App() {
           <AboutUs />
         </div>
 
-        {/* 6. Our Animals (Filterable grid & Sponsor Modals) */}
-        <div id="sec-animals" className="scroll-mt-20">
+        {/* 6 & 7. Our Rescue Stories (Merged Our Rescues & Rescue Chronicles) */}
+        <div id="sec-rescue-stories" className="scroll-mt-20">
           <OurAnimalsGrid onSponsorSuccess={triggerFeedbackToast} />
-        </div>
-
-        {/* 7. Rescue Chronicles (Blog-style before/after recovery histories) */}
-        <div id="sec-stories" className="scroll-mt-20">
           <RescueChronicles />
         </div>
 

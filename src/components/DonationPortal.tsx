@@ -6,7 +6,7 @@ interface DonationPortalProps {
 }
 
 export default function DonationPortal({ onDonationSuccess }: DonationPortalProps) {
-  const [amount, setAmount] = useState<number>(50);
+  const [amount, setAmount] = useState<number>(100);
   const [customAmount, setCustomAmount] = useState<string>("");
   const [frequency, setFrequency] = useState<"once" | "monthly">("monthly");
   const [fund, setFund] = useState<string>("general");
@@ -15,28 +15,28 @@ export default function DonationPortal({ onDonationSuccess }: DonationPortalProp
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
-  const presets = [20, 50, 100, 250];
+  const presets = [100, 250, 400, 500];
 
   const impacts = [
     {
-      value: 20,
-      title: "$20: Nutritious Feed",
-      desc: "Feeds our rescued paddock animals, miniature donkeys, and pigs high-quality forage and grain for an entire week.",
-    },
-    {
-      value: 50,
-      title: "$50: Vital Vaccinations",
-      desc: "Provides critical initial vaccines, flea/tick preventatives, and deworming medicine for new special-needs arrivals.",
-    },
-    {
       value: 100,
-      title: "$100: Medical Support",
-      desc: "Supports laboratory bloodwork, specialized pain management, or orthopedic physical therapy sessions.",
+      title: "$100: Nutritious Feed & Vaccines",
+      desc: "Feeds our rescued paddock animals high-quality forage and provides critical initial vaccines for new arrivals.",
     },
     {
       value: 250,
-      title: "$250: Complete Sponsorship",
-      desc: "Sponsors a permanent resident's complete boarding, veterinary care, and feeding costs for a full month.",
+      title: "$250: Medical Support",
+      desc: "Supports laboratory bloodwork, specialized pain management, or orthopedic physical therapy sessions.",
+    },
+    {
+      value: 400,
+      title: "$400: Barn Operations",
+      desc: "Funds essential barn maintenance, heating, clean bedding, and overall herd housing improvements.",
+    },
+    {
+      value: 500,
+      title: "$500: Full Sanctuary Sponsorship",
+      desc: "Sponsors multiple permanent residents' complete boarding, veterinary care, and feeding costs for a full month.",
     },
   ];
 

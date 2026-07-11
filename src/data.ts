@@ -1,19 +1,19 @@
 import { Animal, RescueStory, TimelineMilestone, GalleryItem, NewsEvent, FAQItem } from "./types";
 
+// @ts-ignore
+import shiva1 from "./assets/images/shiva_1_1783440573220.jpg";
+// @ts-ignore
+import shiva2 from "./assets/images/shiva_2_1783440593395.jpg";
+// @ts-ignore
+import bucephalusVoting from "./assets/images/bucephalus_voting_1783786545702.jpg";
+// @ts-ignore
+import draftHorsesHerd from "./assets/images/draft_horses_herd_1783786560472.jpg";
+// @ts-ignore
+import horsesLonghornPasture from "./assets/images/horses_longhorn_pasture_1783786575523.jpg";
+// @ts-ignore
+import longhornSunset from "./assets/images/longhorn_sunset_1783786588824.jpg";
+
 export const ANIMALS_DATA: Animal[] = [
-  {
-    id: "barnaby",
-    name: "Barnaby",
-    species: "dog",
-    speciesLabel: "Dog (Senior Golden Mix)",
-    age: "11 years",
-    rescueStory: "Found abandoned in an orchard, severely malnourished and suffering from advanced joint issues. Nancy Nenad and our rescue team brought him to the sanctuary, where he has since received orthopedic care and premium nutrition.",
-    currentStatus: "Permanent Resident",
-    personality: "Incredibly gentle, quiet, and deeply affectionate.",
-    favoriteActivities: "Napping under the big shade trees and greeting visitors with slow, happy tail wags.",
-    image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800",
-    sponsorCost: 25,
-  },
   {
     id: "clover",
     name: "Clover",
@@ -28,69 +28,43 @@ export const ANIMALS_DATA: Animal[] = [
     sponsorCost: 35,
   },
   {
-    id: "mirabelle",
-    name: "Mirabelle",
-    species: "cat",
-    speciesLabel: "Cat (Special Needs)",
-    age: "3 years",
-    rescueStory: "Brought to us after a vehicle accident which left her with a partially paralyzed hind leg. After physical therapy and regular hydrotherapy, she has regained excellent mobility.",
-    currentStatus: "Available for Sponsor / Permanent Sanctuary",
-    personality: "Extremely playful, vocal, and stubborn.",
-    favoriteActivities: "Batting at laser pointers and sunbathing on high window ledges in the cat cottage.",
-    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800",
-    sponsorCost: 15,
-  },
-  {
-    id: "pippin",
-    name: "Pippin",
-    species: "bird",
-    speciesLabel: "Rescued Cockatoo",
-    age: "18 years",
-    rescueStory: "Surrendered due to feather-plucking from extreme anxiety and isolation. With dedicated socialization, routine, and a spacious aviary, Pippin's plumage has grown back beautifully.",
-    currentStatus: "Permanent Resident",
-    personality: "Dramatic, intelligent, and highly expressive.",
-    favoriteActivities: "Mimicking Nancy's laugh, dancing to soft acoustic music, and tearing up wooden toys.",
-    image: "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&q=80&w=800",
-    sponsorCost: 20,
-  },
-  {
-    id: "rupert",
-    name: "Rupert",
+    id: "shiva",
+    name: "Shiva",
     species: "farm",
-    speciesLabel: "Pig",
-    age: "4 years",
-    rescueStory: "Rescued from an overcrowded feedlot where he suffered from skin infections. Rupert enjoys a daily mud bath and skin oil massage, which keeps his skin healthy.",
+    speciesLabel: "Draft Horse (Clydesdale Mix)",
+    age: "8 years",
+    rescueStory: "Worked hard hauling logging trailers until worn down. Facing auctions and uncertainty, Shiva was rescued by Nancy Nenad and brought to our warm therapeutic horse paddock.",
     currentStatus: "Permanent Resident",
-    personality: "Friendly, outgoing, and very food-motivated.",
-    favoriteActivities: "Rooting in the dirt for truffles, taking mud baths, and getting belly rubs.",
-    image: "https://images.unsplash.com/photo-1604848698030-c434ba08ece1?auto=format&fit=crop&q=80&w=800",
-    sponsorCost: 30,
+    personality: "Extremely gentle, quiet, protective, and loves human touch.",
+    favoriteActivities: "Standing near volunteers, eating apples, and guiding new pasture mates.",
+    image: shiva1,
+    sponsorCost: 50,
   },
   {
-    id: "penny",
-    name: "Penny",
-    species: "other",
-    speciesLabel: "Rescued Pygmy Goat",
-    age: "2 years",
-    rescueStory: "Found wandering near a major highway. No owner was ever located. Penny was welcomed into our farmyard herd and instantly bonded with the other goats.",
+    id: "bucephalus",
+    name: "Bucephalus",
+    species: "farm",
+    speciesLabel: "Texas Longhorn",
+    age: "6 years",
+    rescueStory: "Brought to us after being saved from a dry stockyard auction. Bucephalus was dehydrated, weak, and fear-stricken, but has fully regained his majestic strength.",
     currentStatus: "Permanent Resident",
-    personality: "Spunky, bouncy, and highly energetic.",
-    favoriteActivities: "Climbing on top of wooden structures, headbutting soft toy balls, and begging for treats.",
-    image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&q=80&w=800",
-    sponsorCost: 15,
+    personality: "Surprisingly sweet-natured, peaceful, and an exceptional ambassador.",
+    favoriteActivities: "Standing for photos, chewing sweet clover grass, and getting horn brushings.",
+    image: bucephalusVoting,
+    sponsorCost: 45,
   },
   {
-    id: "willow",
-    name: "Willow",
-    species: "dog",
-    speciesLabel: "Dog (Three-Legged Great Dane Mix)",
-    age: "4 years",
-    rescueStory: "Suffered a severe leg injury before rescue, requiring amputation. Her three-legged status has never slowed her down; she runs and plays joyfully with all her sanctuary friends.",
-    currentStatus: "Permanent Resident / Co-sponsor Welcomed",
-    personality: "Gentle giant, highly empathetic, and quiet.",
-    favoriteActivities: "Leaning against people's legs for warmth, chewing on giant rubber rings, and napping on double-sized mattresses.",
-    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=800",
-    sponsorCost: 40,
+    id: "ares",
+    name: "Ares",
+    species: "farm",
+    speciesLabel: "One-Horned Longhorn",
+    age: "7 years",
+    rescueStory: "Rescued after escaping a commercial transport truck. Ares had a severely fractured left horn and was in deep pain until our sanctuary performed a life-saving care procedure.",
+    currentStatus: "Permanent Resident",
+    personality: "Proud, resilient, yet incredibly calm around our animal coordinators.",
+    favoriteActivities: "Standing at the peak of the hill during golden sunset, watching over the herd.",
+    image: longhornSunset,
+    sponsorCost: 45,
   }
 ];
 
@@ -118,6 +92,66 @@ export const RESCUE_STORIES: RescueStory[] = [
     recoveryJourney: "Our sanctuary took her in at just two days old. Nancy bottle-fed her every two hours through the night in her own kitchen, wrapped in warm blankets with special warming lamps.",
     currentLife: "Gertie is now a playful, thriving adult ewe. She wears protective custom wool booties in the winter and spends her days leading the pasture herd, proving that love can heal even the frailest souls.",
     date: "March 22, 2026"
+  },
+  {
+    id: "shiva-journey",
+    title: "A New Dawn: Shiva's Path to Peace",
+    animalName: "Shiva (Rescued Draft Horse)",
+    heroImage: shiva1,
+    beforeImage: shiva2,
+    afterImage: shiva1,
+    challenge: "For years, Shiva hauled heavy logging trailers with unwavering obedience. As his joints wore down, he was deemed surplus and faced an auction where his future was bleak and filled with fear.",
+    recoveryJourney: "Nancy Nenad was tipped off about Shiva's situation by a compassionate neighbor. Little Orphan Animals intervened, securing Shiva's release and bringing him to the sanctuary's therapeutic horse paddock where he received specialized joint injections and a soft stall.",
+    currentLife: "Today Shiva lives a peaceful retirement, free from the heavy harness. He is the guardian of the horse pasture, known for his thick, feathered legs and his gentle disposition toward smaller animals.",
+    date: "August 15, 2025"
+  },
+  {
+    id: "bucephalus-journey",
+    title: "A Voice for the Voiceless: Bucephalus the Ambassador",
+    animalName: "Bucephalus (Texas Longhorn)",
+    heroImage: bucephalusVoting,
+    beforeImage: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=400",
+    afterImage: bucephalusVoting,
+    challenge: "Found dehydrated and severely stressed at an auction house, Bucephalus was considered too old and weak for ranching, facing immediate slaughter.",
+    recoveryJourney: "Nancy Nenad welcomed him to the sanctuary. With a balanced, high-protein feed regimen and constant gentle handling, he regained his strength and grew to trust humans completely.",
+    currentLife: "Bucephalus is now a sanctuary legend. Because of his remarkably calm, gentle demeanor, he regularly participates in public educational workshops, standing peacefully alongside interactive booths to advocate for compassionate livestock treatment (#VoteHumane).",
+    date: "November 12, 2025"
+  },
+  {
+    id: "meadow-herd-journey",
+    title: "Stronger Together: The Healing of the Meadow Herd",
+    animalName: "The Meadow Herd (Rescued Draft Horses)",
+    heroImage: draftHorsesHerd,
+    beforeImage: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=400",
+    afterImage: draftHorsesHerd,
+    challenge: "A group of six beautiful chestnut draft horses were rescued together from a severe seizure case, having spent months standing in deep mud with no dry shelter, suffering from severe hoof rot and neglect.",
+    recoveryJourney: "Nancy Nenad coordinated a multi-trailer transport. At the sanctuary, their hooves were trimmed, cleaned, and wrapped daily, while veterinarians provided specialized nutritional therapy to restore their depleted coat oils.",
+    currentLife: "Today, they are a majestic sight. They roam together as a tight-knit family in our largest pasture, eating sweet hay and running with incredible grace under the warm sun, a true testament to collective healing.",
+    date: "December 3, 2025"
+  },
+  {
+    id: "high-pasture-companions",
+    title: "Interspecies Harmony: The High Pasture Companions",
+    animalName: "The High Pasture Companions",
+    heroImage: horsesLonghornPasture,
+    beforeImage: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=400",
+    afterImage: horsesLonghornPasture,
+    challenge: "A black-and-white longhorn bull and three rescued draft horses arrived at the sanctuary from different traumatic backgrounds, each showing extreme signs of isolation, fear, and territorial anxiety.",
+    recoveryJourney: "Nancy and her coordinators utilized gentle, fence-line introductions over several weeks. Once ready, they were turned out into the high pasture together, where they immediately formed a unique bond.",
+    currentLife: "The companions are now inseparable. The longhorn protects the group while the draft horses graze alongside him, demonstrating that safety and friendship can break down all species barriers.",
+    date: "January 20, 2026"
+  },
+  {
+    id: "ares-journey",
+    title: "A Monument of Grace: Ares the Golden Sunset Longhorn",
+    animalName: "Ares (Rescued One-Horned Longhorn)",
+    heroImage: longhornSunset,
+    beforeImage: "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&q=80&w=400",
+    afterImage: longhornSunset,
+    challenge: "Ares was found wandering with a deep fracture in his left horn after escaping a transport truck. He was terrified, defensive, and suffering from a severe infection.",
+    recoveryJourney: "Our veterinary team performed a life-saving, specialized amputation of the fractured horn under general anesthesia. Nancy Nenad hand-treated the wound twice daily with antimicrobial salves, earning his trust.",
+    currentLife: "With his single majestic horn, Ares looks like a mythical creature. He is a stunning resident who stands proudly on our hilltops at sunset, a beloved symbol of resilience and survivor's grace.",
+    date: "February 14, 2026"
   }
 ];
 

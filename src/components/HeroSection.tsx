@@ -26,7 +26,7 @@ export default function HeroSection({ onMeetRescues, onDonateClick }: HeroProps)
   };
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center pt-28 pb-16 overflow-hidden isolate">
+    <section className="relative min-h-[85vh] flex items-center justify-center pt-16 pb-16 overflow-hidden isolate">
       {/* Background Sanctuary Video and Fallback Gradient */}
       <div className="absolute inset-0 -z-20 overflow-hidden bg-gradient-to-br from-[#FAF6EE] via-[#F4EFE6] to-[#EAE3D5] dark:from-[#1E1C1A] dark:via-[#191715] dark:to-[#12110F]">
         <video
