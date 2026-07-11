@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Heart, Menu, X, Sparkles } from "lucide-react";
+// @ts-ignore
+import logoImg from "../assets/images/logo_1783787971405.jpg";
 
 interface HeaderProps {
   activeSection: string;
@@ -68,25 +70,12 @@ export default function NavigationHeader({
             className="flex items-center space-x-3 cursor-pointer group"
           >
             {/* Logo Silhouette combo */}
-            <div className="relative w-11 h-11 bg-emerald-800 dark:bg-emerald-950 rounded-2xl flex items-center justify-center shadow-md shadow-emerald-900/10 transition-transform duration-300 group-hover:scale-105">
-              <Heart className="w-8 h-8 text-emerald-100/20 absolute" />
-              {/* Custom SVG paw and silhouette nested nicely */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-emerald-200 z-10"
-              >
-                <path d="M12 5c.67 0 1.2.36 1.6 1 .43-.64.93-1 1.6-1a2.15 2.15 0 0 1 2.2 2.1c0 1.25-.8 2.45-1.9 3.4l-3.5 3.1a.6.6 0 0 1-.8 0l-3.5-3.1C6.8 9.55 6 8.35 6 7.1a2.15 2.15 0 0 1 2.2-2.1c.67 0 1.2.36 1.6 1 .4-.64.93-1 1.6-1Z" />
-                <path d="M12 18H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1" />
-                <path d="M18 12v4a2 2 0 0 1-2 2h-1" />
-              </svg>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-500 rounded-full animate-pulse" />
-            </div>
+            <img
+              src={logoImg}
+              alt="Little Orphan Animals Logo"
+              referrerPolicy="no-referrer"
+              className="w-11 h-11 object-cover rounded-xl border border-stone-200 dark:border-stone-800 transition-transform duration-300 group-hover:scale-105 shadow-md"
+            />
             
             <div className="flex flex-col">
               <span className="font-serif text-lg font-bold text-stone-900 dark:text-stone-100 tracking-tight leading-tight">
